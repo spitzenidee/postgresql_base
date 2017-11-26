@@ -8,7 +8,7 @@ MAINTAINER Michael Spitzer <professa@gmx.net>
 #######################################################################
 
 #######################################################################
-# Prepare ENV
+# Prepare ENVs
 ENV PGSQL_HTTP_VERSION "1.2.2"
 ENV PG_CRON_VERSION    "1.0.2"
 ENV POWA_VERSION       "3_1_1"
