@@ -1,4 +1,4 @@
-FROM postgres:10.1
+FROM postgres:10.3
 MAINTAINER Michael Spitzer <professa@gmx.net>
 
 #######################################################################
@@ -9,8 +9,13 @@ MAINTAINER Michael Spitzer <professa@gmx.net>
 
 #######################################################################
 # Prepare ENVs
-ENV PGSQL_HTTP_VERSION "1.2.2"
-ENV PG_CRON_VERSION    "1.0.2"
+ENV PGSQL_HTTP_VERSION        "1.2.2"
+ENV PG_CRON_VERSION           "1.0.2"
+ENV POWA_ARCHIVIST_VERSION    "3_1_1"
+ENV PG_QUALSTATS_VERSION      "1.0.3"
+ENV PG_STAT_KCACHE_VERSION    "2_0_3"
+ENV HYPOPG_VERSION            "1.1.0"
+ENV PG_TRACK_SETTINGS_VERSION "1.0.0"
 
 #######################################################################
 # Prepare the build requirements for the rdkit compilation:
@@ -38,11 +43,11 @@ RUN apt-get update && apt-get install -y \
     cd /build && \
     mkdir powa && \
     cd powa && \
-    wget -O- $(wget -O- https://api.github.com/repos/dalibo/powa-archivist/releases/latest|jq -r '.tarball_url') | tar -xzf - && \
-    wget -O- $(wget -O- https://api.github.com/repos/dalibo/pg_qualstats/releases/latest|jq -r '.tarball_url') | tar -xzf - && \
-    wget -O- $(wget -O- https://api.github.com/repos/dalibo/pg_stat_kcache/releases/latest|jq -r '.tarball_url') | tar -xzf - && \
-    wget -O- $(wget -O- https://api.github.com/repos/dalibo/hypopg/releases/latest|jq -r '.tarball_url') | tar -xzf - && \
-    wget -O- $(wget -O- https://api.github.com/repos/rjuju/pg_track_settings/releases/latest|jq -r '.tarball_url') | tar -xzf - && \
+    wget -O- https://github.com/powa-team/powa-archivist/archive/REL_$POWA_ARCHIVIST_VERSION.tar.gz | tar -xzf - && \
+    wget -O- https://github.com/powa-team/pg_qualstats/archive/$PG_QUALSTATS_VERSION.tar.gz | tar -xzf - && \
+    wget -O- https://github.com/powa-team/pg_stat_kcache/archive/REL$PG_STAT_KCACHE_VERSION.tar.gz | tar -xzf - && \
+    wget -O- https://github.com/HypoPG/hypopg/archive/$HYPOPG_VERSION.tar.gz | tar -xzf - && \
+    wget -O- https://github.com/rjuju/pg_track_settings/archive/$PG_TRACK_SETTINGS_VERSION.tar.gz | tar -xzf - && \
     for f in $(ls); do cd $f; make install; cd ..; rm -rf $f; done && \
 # Clean up again:
     cd / && \
