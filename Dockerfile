@@ -19,11 +19,10 @@ ENV PG_TRACK_SETTINGS_VERSION "1.0.0"
 
 #######################################################################
 # Prepare the build requirements for the rdkit compilation:
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     postgresql-server-dev-all postgresql-contrib \
-    #libcurl4-nss-dev libcurl4-gnutls-dev \
     libcurl4-openssl-dev \
-    wget jq cmake build-essential && \
+    wget jq cmake build-essential ca-certificates && \
 # Install PGSQL_HTTP:
     mkdir /build && \
     cd /build && \
@@ -52,7 +51,7 @@ RUN apt-get update && apt-get install -y \
 # Clean up again:
     cd / && \
     rm -rf /build && \
-    apt-get remove -y wget jq cmake build-essential && \
+    apt-get remove -y wget jq cmake build-essential ca-certificates && \
     apt-get autoremove --purge -y && \
     apt-get clean && \
     apt-get purge && \
