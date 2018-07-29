@@ -3,9 +3,10 @@ A Dockerfile integrating Postgresql with some "base" extensions, to build upon w
 
 # Purpose
 This Dockerfile builds a Postgresql image and integrates with
-* PGSQL_HTTP, version 1.2.2 (https://github.com/pramsey/pgsql-http)
-* PG_CRON, version 1.0.2 (https://github.com/citusdata/pg_cron)
-* POWA Archivist, version 3_1_1 (https://github.com/dalibo/powa-archivist), incl. HypoPG (https://github.com/dalibo/hypopg) etc.
+* PGSQL_HTTP, version 1.2.4 (https://github.com/pramsey/pgsql-http)
+* PG_CRON, version 1.1.2 (https://github.com/citusdata/pg_cron)
+* POWA Archivist, version 3.1.2 (https://github.com/dalibo/powa-archivist), incl. HypoPG (https://github.com/dalibo/hypopg) etc.
+* and some more around POWA Archivist & HypoPG.
 
 Based on this Dockerfile and the automated build on DockerHub (https://hub.docker.com/r/spitzenidee/postgresql_base/) more "specified" Postgresql images can be set up, e.g.
 * RDKit
@@ -28,7 +29,7 @@ Based on this Dockerfile and the automated build on DockerHub (https://hub.docke
 Use your favorite SQL command line or UI tool to create extensions in your selected database (as a Postgresql superuser, such as "postgres", and possibly in the database "postgres" if you're on defaults from this container image).
 * `SET AUTOCOMMIT=ON;`
 * `CREATE EXTENSION http;`
-* `CREATE EXTENSION pg_cron;`
+* `CREATE EXTENSION pg_cron;`, or if coming from a previous release `ALTER EXTENSION pg_cron UPDATE;`
 * `GRANT USAGE ON SCHEMA cron TO regular_pgsql_user;`
 
 # Now for setting up POWA
