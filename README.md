@@ -29,7 +29,7 @@ Based on this Dockerfile and the automated build on DockerHub (https://hub.docke
 Use your favorite SQL command line or UI tool to create extensions in your selected database (as a Postgresql superuser, such as "postgres", and possibly in the database "postgres" if you're on defaults from this container image).
 * `SET AUTOCOMMIT=ON;`
 * `CREATE EXTENSION http;`
-* `CREATE EXTENSION pg_cron;`
+* `CREATE EXTENSION pg_cron;`, or if coming from a previous release `ALTER EXTENSION pg_cron UPDATE;`
 * `GRANT USAGE ON SCHEMA cron TO regular_pgsql_user;`
 
 # Now for setting up POWA
