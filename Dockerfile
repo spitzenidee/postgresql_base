@@ -1,4 +1,4 @@
-FROM postgres:10.3
+FROM postgres:10.4
 MAINTAINER Michael Spitzer <professa@gmx.net>
 
 #######################################################################
@@ -9,13 +9,13 @@ MAINTAINER Michael Spitzer <professa@gmx.net>
 
 #######################################################################
 # Prepare ENVs
-ENV PGSQL_HTTP_VERSION        "1.2.2"
-ENV PG_CRON_VERSION           "1.0.2"
-ENV POWA_ARCHIVIST_VERSION    "3_1_1"
-ENV PG_QUALSTATS_VERSION      "1.0.3"
-ENV PG_STAT_KCACHE_VERSION    "2_0_3"
-ENV HYPOPG_VERSION            "1.1.0"
-ENV PG_TRACK_SETTINGS_VERSION "1.0.0"
+ENV PGSQL_HTTP_VERSION        "1.2.4"
+ENV PG_CRON_VERSION           "1.1.2"
+ENV POWA_ARCHIVIST_VERSION    "3_1_2"
+ENV PG_QUALSTATS_VERSION      "1.0.5"
+ENV PG_STAT_KCACHE_VERSION    "2_1_1"
+ENV HYPOPG_VERSION            "1.1.2"
+ENV PG_TRACK_SETTINGS_VERSION "1.0.1"
 
 #######################################################################
 # Prepare the build requirements for the rdkit compilation:
