@@ -5,7 +5,7 @@ A Dockerfile integrating Postgresql with some "base" extensions, to build upon w
 This Dockerfile builds a Postgresql image and integrates with
 * PGSQL_HTTP, version 1.2.4 (https://github.com/pramsey/pgsql-http)
 * PG_CRON, version 1.1.2 (https://github.com/citusdata/pg_cron)
-* POWA Archivist, version 3.1.2 (https://github.com/dalibo/powa-archivist), incl. HypoPG (https://github.com/dalibo/hypopg) etc.
+* POWA Archivist, version 3.1.2 (https://github.com/powa-team/powa-archivist), incl. HypoPG (https://github.com/HypoPG/hypopg) etc.
 * and some more around POWA Archivist & HypoPG.
 
 Based on this Dockerfile and the automated build on DockerHub (https://hub.docker.com/r/spitzenidee/postgresql_base/) more "specified" Postgresql images can be set up, e.g.
