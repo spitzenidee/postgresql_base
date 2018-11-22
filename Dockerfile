@@ -9,10 +9,10 @@ MAINTAINER Michael Spitzer <professa@gmx.net>
 
 #######################################################################
 # Prepare ENVs
-ENV PGSQL_HTTP_VERSION        "1.2.4"
-ENV PG_CRON_VERSION           "1.1.2"
-ENV POWA_ARCHIVIST_VERSION    "3_1_2"
-ENV PG_QUALSTATS_VERSION      "1.0.5"
+ENV PGSQL_HTTP_VERSION        "1.3.0"
+ENV PG_CRON_VERSION           "1.1.3"
+ENV POWA_ARCHIVIST_VERSION    "3_2_0"
+ENV PG_QUALSTATS_VERSION      "1.0.7"
 ENV PG_STAT_KCACHE_VERSION    "2_1_1"
 ENV HYPOPG_VERSION            "1.1.2"
 ENV PG_TRACK_SETTINGS_VERSION "1.0.1"
